@@ -1,4 +1,11 @@
 ---
-title = 'News'
+import { getCollection } from 'astro:content';
+const posts = await getCollection('news');
 ---
-<h1>News</h1><p>Latest news updates will appear here.</p>
+
+<h1>News</h1>
+<ul>
+  {posts.map(post => (
+    <li><a href={`/news/${post.slug}/`}>{post.data.title}</a> - {post.data.date}</li>
+  ))}
+</ul>

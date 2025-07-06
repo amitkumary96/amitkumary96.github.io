@@ -1,2 +1,3 @@
-# amitkumary96.github.io
-My Personal Website
+# Personal Markdown-Powered Astro Website
+
+Built with Astro, powered by markdown content.

@@ -1,4 +1,11 @@
 ---
-title = 'Technical Blog'
+import { getCollection } from 'astro:content';
+const posts = await getCollection('technical');
 ---
-<h1>Technical Blogs</h1><p>Blog posts will appear here.</p>
+
+<h1>Technical Blog</h1>
+<ul>
+  {posts.map(post => (
+    <li><a href={`/technical/${post.slug}/`}>{post.data.title}</a> - {post.data.date}</li>
+  ))}
+</ul>

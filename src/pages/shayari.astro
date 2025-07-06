@@ -1,4 +1,11 @@
 ---
-title = 'Shayari'
+import { getCollection } from 'astro:content';
+const posts = await getCollection('shayari');
 ---
-<h1>Shayari</h1><p>Shayari posts will appear here.</p>
+
+<h1>Shayari</h1>
+<ul>
+  {posts.map(post => (
+    <li><a href={`/shayari/${post.slug}/`}>{post.data.title}</a> - {post.data.date}</li>
+  ))}
+</ul>
